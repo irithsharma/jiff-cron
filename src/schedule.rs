@@ -500,6 +500,7 @@ impl DoubleEndedIterator for ScheduleIterator<'_> {
 }
 
 /// A `ScheduleIterator` with a static lifetime.
+#[derive(Debug, Clone)]
 pub struct OwnedScheduleIterator {
     schedule: Schedule,
     previous_datetime: Option<Zoned>,
