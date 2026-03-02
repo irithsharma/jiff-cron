@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] <!-- release-date -->
 
+## [0.2.0] - 2026-03-02
+
 ### BREAKING CHANGES
 
 - Re-define `Schedule` equality in terms of **parsed representation**.
@@ -29,10 +31,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Document shared ownership (https://github.com/jiff-cron/jiff-cron/commit/e103e0219eb989fb8c8ac49efdebbe31d0654f83) by @LeoniePhiline
 - Declare broader dependency versions (https://github.com/jiff-cron/jiff-cron/pull/20) by @LeoniePhiline
 - Update links to point to the `jiff-cron` GitHub organization (https://github.com/jiff-cron/jiff-cron/commit/1eff14a82e19a305d684044aa11e92500e4a6b43) by @maxcountryman
+- Re-implement next\_after/prev\_from logic to support jiff 0.2/DST (https://github.com/jiff-cron/jiff-cron/pull/31) by @StephanvanSchaik
 
 ### Fixed
 
 - Avoid running CI workflows twice (https://github.com/jiff-cron/jiff-cron/commit/398054060fce88b92883e3875328ca18da9364ed) by @maxcountryman
+- Update `jiff` to 0.2 (https://github.com/jiff-cron/jiff-cron/pull/29) by @LeoniePhiline
 
 ## [0.1.1] - 2024-11-01
 
@@ -52,5 +56,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix: Don't accept invalid step for `Period` (https://github.com/maxcountryman/jiff-cron/commit/cabee0f36eec4faa34ebe3780046516d4a97a41b, https://github.com/zslayton/cron/pull/122) by @bombsimon
 
 <!-- next-url -->
-[Unreleased]: https://github.com/LeoniePhiline/async-mailer/compare/v0.1.1...HEAD
-[0.1.0]: https://github.com/LeoniePhiline/async-mailer/releases/tag/v0.1.1
+[Unreleased]: https://github.com/jiff-cron/jiff-cron/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/jiff-cron/jiff-cron/compare/v0.1.1...0.2.0
+[0.1.0]: https://github.com/jiff-cron/jiff-cron/releases/tag/v0.1.1
