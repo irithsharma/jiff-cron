@@ -9,6 +9,78 @@ mod tests {
     use jiff_cron::{Schedule, TimeUnitSpec};
 
     #[test]
+    fn test_schedule_no_next_with_later_year() {
+        let expression = "* * * * * * 2025";
+        let schedule = Schedule::from_str(expression).unwrap();
+        let starting_date = date(2026, 1, 1)
+            .at(0, 0, 0, 123)
+            .to_zoned(TimeZone::UTC)
+            .unwrap();
+        let datetime = schedule.after(&starting_date).next();
+        assert!(datetime.is_none());
+    }
+
+    #[test]
+    fn test_schedule_no_next_with_later_seconds() {
+        let expression = "1 * * * * * 2025";
+        let schedule = Schedule::from_str(expression).unwrap();
+        let starting_date = date(2025, 12, 31)
+            .at(23, 59, 2, 123)
+            .to_zoned(TimeZone::UTC)
+            .unwrap();
+        let datetime = schedule.after(&starting_date).next();
+        assert!(datetime.is_none());
+    }
+
+    #[test]
+    fn test_schedule_no_next_with_later_seconds_rounded() {
+        let expression = "1 * * * * * 2025";
+        let schedule = Schedule::from_str(expression).unwrap();
+        let starting_date = date(2025, 12, 31)
+            .at(23, 59, 1, 123)
+            .to_zoned(TimeZone::UTC)
+            .unwrap();
+        let datetime = schedule.after(&starting_date).next();
+        assert!(datetime.is_none());
+    }
+
+    #[test]
+    fn test_schedule_no_prev_with_earlier_year() {
+        let expression = "* * * * * * 2026";
+        let schedule = Schedule::from_str(expression).unwrap();
+        let starting_date = date(2025, 12, 31)
+            .at(0, 0, 0, 123)
+            .to_zoned(TimeZone::UTC)
+            .unwrap();
+        let datetime = schedule.after(&starting_date).next_back();
+        assert!(datetime.is_none());
+    }
+
+    #[test]
+    fn test_schedule_no_prev_with_earlier_seconds() {
+        let expression = "59 * * * * * 2026";
+        let schedule = Schedule::from_str(expression).unwrap();
+        let starting_date = date(2026, 1, 1)
+            .at(0, 0, 1, 123)
+            .to_zoned(TimeZone::UTC)
+            .unwrap();
+        let datetime = schedule.after(&starting_date).next_back();
+        assert!(datetime.is_none());
+    }
+
+    #[test]
+    fn test_schedule_no_prev_with_earlier_seconds_rounded() {
+        let expression = "59 * * * * * 2026";
+        let schedule = Schedule::from_str(expression).unwrap();
+        let starting_date = date(2026, 1, 1)
+            .at(0, 0, 0, 123)
+            .to_zoned(TimeZone::UTC)
+            .unwrap();
+        let datetime = schedule.after(&starting_date).next_back();
+        assert!(datetime.is_none());
+    }
+
+    #[test]
     fn test_readme() {
         let expression = "0   30   9,12,15     1,15       May-Aug  Mon,Wed,Fri  2018/2";
         let schedule = Schedule::from_str(expression).unwrap();
@@ -44,7 +116,10 @@ mod tests {
     fn test_parse_with_lists() {
         let expression = "1 2,17,51 1-3,6,9-11 4,29 2,3,7,8 Tues";
         let schedule = Schedule::from_str(expression).unwrap();
-        let mut date = Zoned::now().with_time_zone(TimeZone::UTC);
+        let mut date = date(2006, 01, 02)
+            .at(15, 04, 05, 999)
+            .to_zoned(TimeZone::UTC)
+            .unwrap();
         println!("Fire times for {expression}:");
         for _ in 0..20 {
             date = schedule.after(&date).next().expect("No further dates!");
