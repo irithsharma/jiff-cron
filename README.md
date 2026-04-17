@@ -1,6 +1,6 @@
 # jiff-cron [![Rust](https://github.com/jiff-cron/jiff-cron/workflows/Rust/badge.svg)](https://github.com/jiff-cron/jiff-cron/actions) [![dependency status](https://deps.rs/repo/github/jiff-cron/jiff-cron/status.svg)](https://deps.rs/repo/github/jiff-cron/jiff-cron) [![](https://img.shields.io/crates/v/jiff-cron.svg)](https://crates.io/crates/jiff-cron) [![](https://docs.rs/jiff-cron/badge.svg)](https://docs.rs/jiff-cron)
 
-> NOTE: this is a temporary release while waiting for the [original repo](https://github.com/jiff-cron/jiff-cron) to release their `0.2.0`.
+> NOTE: these are temporary releases while waiting for the [original repo](https://github.com/jiff-cron/jiff-cron) to release their `0.2.0`.
 
 A cron expression parser built with `jiff`.
 
@@ -75,7 +75,7 @@ Upcoming fire times:
 Add to your `Cargo.toml`:
 
 ```toml
-jiff-cron = "0.2.0"
+jiff-cron = "0.2.1"
 ```
 
 You can enable optional [`serde`](https://docs.rs/crate/serde) support

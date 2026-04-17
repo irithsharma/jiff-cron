@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] <!-- release-date -->
 
+## [0.2.1] - 2026-04-17
+
+### Fixed
+
+- fix: add year bounds check to schedule iteration, refactor next\_after/prev\_from
+
 ## [0.2.0] - 2026-03-02
 
 ### BREAKING CHANGES
@@ -56,6 +62,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix: Don't accept invalid step for `Period` (https://github.com/maxcountryman/jiff-cron/commit/cabee0f36eec4faa34ebe3780046516d4a97a41b, https://github.com/zslayton/cron/pull/122) by @bombsimon
 
 <!-- next-url -->
-[Unreleased]: https://github.com/jiff-cron/jiff-cron/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/jiff-cron/jiff-cron/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/jiff-cron/jiff-cron/compare/v0.2.0...0.2.1
 [0.2.0]: https://github.com/jiff-cron/jiff-cron/compare/v0.1.1...0.2.0
 [0.1.0]: https://github.com/jiff-cron/jiff-cron/releases/tag/v0.1.1
